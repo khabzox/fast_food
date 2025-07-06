@@ -1,8 +1,12 @@
-import { View, Text, Button, Alert } from "react-native";
 import { Link, router } from "expo-router";
+import { View, Text, Button, Alert } from "react-native";
+
 import CustomInput from "@/components/CustomInput";
 import CustomButton from "@/components/CustomButton";
+
 import { useState } from "react";
+
+import { createUser } from "@/lib/appwrite";
 
 const SignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,10 +24,9 @@ const SignUp = () => {
     setIsSubmitting(true);
 
     try {
-      // Call Appwrite sign-up function here
+      await createUser({ email, password, name });
 
-      Alert.alert("Success", "Sign Up functionality is not implemented yet.");
-      router.replace("/");
+      router.push("/");
     } catch (error: any) {
       Alert.alert("Error", error.message);
     } finally {
