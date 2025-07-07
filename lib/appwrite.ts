@@ -13,7 +13,12 @@ export const appwriteConfig = {
   projectID: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
   platform: process.env.EXPO_PUBLIC_APPWRITE_PLATFORM,
   databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID,
+ bucketId: process.env.EXPO_PUBLIC_APPWRITE_BUCKET_ID,
   userCollectionId: process.env.EXPO_PUBLIC_APPWRITE_USERCOLLECTION_ID,
+  categoriesCollactionId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORIESCOLLECTION_ID,
+  menuCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENU_COLLECTION_ID,
+  customizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CUSTOMIZATIONS_COLLECTION_ID,
+  menuCustomizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENU_CUSTOMIZATIONS_COLLECTION_ID,
 };
 
 export const client = new Client();
@@ -73,7 +78,7 @@ export const getCurrentUser = async () => {
       [Query.equal("accountId", currentAccount.$id)]
     );
 
-    if(!currentUser) throw Error;
+    if (!currentUser) throw Error;
 
     return currentUser.documents[0];
   } catch (e) {
