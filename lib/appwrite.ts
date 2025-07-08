@@ -6,6 +6,7 @@ import {
   ID,
   Databases,
   Query,
+  Storage,
 } from "react-native-appwrite";
 
 export const appwriteConfig = {
@@ -13,9 +14,9 @@ export const appwriteConfig = {
   projectID: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
   platform: process.env.EXPO_PUBLIC_APPWRITE_PLATFORM,
   databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID,
- bucketId: process.env.EXPO_PUBLIC_APPWRITE_BUCKET_ID,
+  bucketId: process.env.EXPO_PUBLIC_APPWRITE_BUCKET_ID,
   userCollectionId: process.env.EXPO_PUBLIC_APPWRITE_USERCOLLECTION_ID,
-  categoriesCollactionId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORIESCOLLECTION_ID,
+  categoriesCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CATEGORIESCOLLECTION_ID,
   menuCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENU_COLLECTION_ID,
   customizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_CUSTOMIZATIONS_COLLECTION_ID,
   menuCustomizationsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_MENU_CUSTOMIZATIONS_COLLECTION_ID,
@@ -30,6 +31,7 @@ client
 
 export const account = new Account(client);
 export const databases = new Databases(client);
+export const storage = new Storage(client);
 const avatars = new Avatars(client);
 
 export const createUser = async ({
